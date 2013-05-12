@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<dialog id="open_other_browser_options" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" title="Other Browser Options" onload="open_other_browser.startup();" ondialogaccept="open_other_browser.accept();">
+<script type="text/javascript">
+var sss = Components.classes["@mozilla.org/content/style-sheet-service;1"]
+                    .getService(Components.interfaces.nsIStyleSheetService);
+var ios = Components.classes["@mozilla.org/network/io-service;1"]
+                    .getService(Components.interfaces.nsIIOService);
+var uri = ios.newURI("chrome://global/skin/", null, null);
+sss.loadAndRegisterSheet(uri, sss.USER_SHEET);
+</script>
+<script type="text/javascript" src="open_other_browser.js"/>
+        <vbox>
+	<groupbox>
+		<caption label="Other browser location"/>
+		<description>Select location of other browser (chrome.exe, or any application) on your computer</description>
+		<hbox align="center">
+			<textbox id="chromeloc" size="60"/>
+			<button label="Browse" oncommand="open_other_browser.picker();"/>
+		</hbox>
+		<hbox align="center">
+			<label control="newpat" value="Parameters"/>
+			<textbox id="params" size="60"/>
+		</hbox>
+	</groupbox>
+	<groupbox>
+		<hbox align="center">
+			<checkbox label="Automatically close tabs when viewing them in the other browser" id="autoclose"/>
+		</hbox>
+	</groupbox>
+	<groupbox>
+		<caption label="Sites to always open in other browser"/>
+		<description>Sites listed here will always open in the other browser. Specified as regular expressions.</description>
+		<hbox align="center">
+			<listbox id="alwayslist" flex="1" seltype="multiple" onselect="open_other_browser.updatebutton();"/>
+			<button id="deletealwaysitem" label="Delete" disabled="true" oncommand="open_other_browser.deleteitems();"/>
+		</hbox>
+		<hbox align="center">
+			<label control="newpat" value="Add site"/>
+			<textbox id="newalwaysitem" size="50" oninput="open_other_browser.updatebutton();"/>
+			<button id="addalwaysitem" label="Add" disabled="true" oncommand="open_other_browser.additems();"/>
+		</hbox>
+	</groupbox>
+        </vbox>
+</dialog>
+
+
+
+
+	

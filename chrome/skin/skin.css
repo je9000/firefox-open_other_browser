@@ -1,0 +1,7 @@
+#open_other_browser-toolbar {
+	list-style-image: url('chrome://open_other_browser/skin/icon.png');
+}
+toolbar[iconsize="small"] #open_other_browser-toolbar .toolbarbutton-icon {
+	height:16px;
+	width:16px;
+}

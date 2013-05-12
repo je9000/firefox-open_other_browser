@@ -1,0 +1,5 @@
+content	open_other_browser	chrome/content/
+overlay	chrome://browser/content/browser.xul	chrome://open_other_browser/content/open_other_browser_overlay.xul
+skin	open_other_browser	classic/1.0	chrome/skin/
+style	chrome://global/content/customizeToolbar.xul	chrome://open_other_browser/skin/skin.css
+style	chrome://browser/content/browser.xul	chrome://open_other_browser/skin/skin.css

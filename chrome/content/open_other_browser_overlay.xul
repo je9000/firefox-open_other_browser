@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<overlay id="open_other_browser_overlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+<script type="application/x-javascript" src="open_other_browser.js"/>
+	<popup id="contentAreaContextMenu">
+		<menuitem id="openpagecontext" label="View this page in other browser" oncommand="open_other_browser.launch(gBrowser.currentURI.spec)"/>
+		<menuitem id="openlinkcontext" label="Open Link in Other Browser" oncommand="open_other_browser.launch(gContextMenu.getLinkURL())"/>
+	</popup>
+	<toolbarpalette id="BrowserToolbarPalette">
+        	<toolbarbutton id="open_other_browser-toolbar" class="toolbarbutton-1" label="Other Browser" tooltiptext="Open this page in other browser" oncommand="open_other_browser.launch(gBrowser.currentURI.spec)"/>
+	</toolbarpalette>
+</overlay>
